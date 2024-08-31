@@ -1,0 +1,72 @@
+// Variables
+$successBorder: rgba(0, 255, 25, 0.322);
+$successBg: rgba(29, 192, 29, 0.15);
+$successColor: #8def8d;
+
+$errorBorder: rgba(255, 25, 0, 0.322);
+$errorBg: rgba(192, 29, 29, 0.15);
+$errorColor: #ef8d8dfa;
+
+$infoBorder: rgba(0, 123, 255, 0.322);
+$infoBg: rgba(23, 162, 184, 0.15);
+$infoColor: #17a2b8;
+
+$securityBorder: rgba(255, 193, 7, 0.322);
+$securityBg: rgba(255, 193, 7, 0.15);
+$securityColor: #ffc107;
+
+$lightBorder: rgba(248, 249, 250, 0.5);
+$lightBg: #f8f9fa;
+$lightColor: #212529;
+
+$primaryBorder: rgba(0, 123, 255, 0.5);
+$primaryBg: rgba(0, 123, 255, 0.15);
+$primaryColor: #007bff;
+
+// Mixins
+@mixin alert($name, $borderColor, $bgColor, $color) {
+  .#{$name} {
+    border: 2px dotted $borderColor;
+    padding: 1.3rem;
+    background-color: $bgColor;
+    color: $color;
+    margin-bottom: 1rem;
+    border-radius: 0.8rem;
+
+    .alert-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .title {
+        display: flex;
+        align-items: center;
+        font-weight: bold;
+        span {
+          margin-right: 0.5rem;
+        }
+      }
+      .close {
+        cursor: pointer;
+        color: $color;
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+    }
+
+    .alert-text {
+      margin-top: 1.2rem;
+      line-height: 1.5;
+      font-size: 0.95rem;
+    }
+  }
+}
+
+// Apply mixins
+@include alert("alert-danger", $errorBorder, $errorBg, $errorColor);
+@include alert("alert-success", $successBorder, $successBg, $successColor);
+@include alert("alert-info", $infoBorder, $infoBg, $infoColor);
+@include alert("alert-security", $securityBorder, $securityBg, $securityColor);
+@include alert("alert-light", $lightBorder, $lightBg, $lightColor);
+@include alert("alert-primary", $primaryBorder, $primaryBg, $primaryColor);

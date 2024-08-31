@@ -1,35 +1,49 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BellRing, CheckCircle, Info, Shield, Sun, Zap } from 'lucide-react';
+import Alert from './componets/UI/Alert';
+import './App.css';
+
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Alert
+        type="alert-danger"
+        icon={<BellRing />}
+        title="Warning"
+        description="This is a warning alert. Please take the necessary precautions to avoid potential issues."
+      />
+      <Alert
+        type="alert-success"
+        icon={<CheckCircle />}
+        title="Success"
+        description="This is a success alert. Your operation was completed successfully without any issues."
+      />
+      <Alert
+        type="alert-info"
+        icon={<Info />}
+        title="Information"
+        description="This is an informational alert. Here are some important details you should be aware of."
+      />
+      <Alert
+        type="alert-security"
+        icon={<Shield />}
+        title="Security Warning"
+        description="This is a security warning. Please ensure that your systems are up to date and secure."
+      />
+      <Alert
+        type="alert-light"
+        icon={<Sun />}
+        title="Light Alert"
+        description="This is a light-themed alert. Use it for subtle notifications or information."
+      />
+      <Alert
+        type="alert-primary"
+        icon={<Zap />}
+        title="Primary Alert"
+        description="This is a primary alert. It is used for key information that requires attention."
+      />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
